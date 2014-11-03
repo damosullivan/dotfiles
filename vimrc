@@ -28,7 +28,8 @@ set hlsearch                           " Highlight search
 set ignorecase smartcase               " ignore casing when searching
 set scrolloff=3                        " Scroll 3 lines passing search, don't leave on top
 
-" syntax on
+syntax on
+set showcmd
 
 set expandtab
 set tabstop=4
@@ -56,6 +57,15 @@ map <Left> :echo "no!"<cr>
 map <Right> :echo "no!"<cr>
 map <Up> :echo "no!"<cr>
 map <Down> :echo "no!"<cr>
+
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+
+" Map vimrc editing
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " -----FUNCTIONS-----
 
