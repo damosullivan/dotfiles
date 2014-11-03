@@ -1,0 +1,18 @@
+{
+	"installed_packages":
+	[
+		"BracketHighlighter",
+		"Git",
+		"GitGutter",
+		"Python Improved",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-flake8",
+		"SublimeLinter-pylint",
+		"SublimeREPL",
+		"Terminal",
+		"Theme - Night",
+		"TrailingSpaces"
+	]
+}
