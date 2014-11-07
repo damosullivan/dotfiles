@@ -1,10 +1,10 @@
 {
 	"installed_packages":
 	[
+		"AdvancedNewFile",
 		"BracketHighlighter",
 		"Git",
 		"GitGutter",
-		"Python Improved",
 		"SideBarEnhancements",
 		"SublimeCodeIntel",
 		"SublimeLinter",
