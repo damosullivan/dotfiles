@@ -64,6 +64,7 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 
 map :Q :q
+nnoremap K i<CR><Esc>
 
 " Map vimrc editing
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
