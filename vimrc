@@ -3,52 +3,92 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
 
-" -----BEGIN PLUGINS-----
 Plugin 'gmarik/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
-Bundle 'flazz/vim-colorschemes'
-" Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'
-Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-commentary'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'bling/vim-airline'
+Plugin 'mileszs/ack.vim'
 
-" ------END PLUGINS-----
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+
+
+" """"""""
+" Plugin Settings
+" """"""""
 
 " Set options for ctrlp.vim
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30,results:30'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+let g:ctrlp_switch_buffer = '<C-t>'
+let g:ctrlp_mruf_case_sensitive = 0
 
-set showmatch                          " show matches
-set incsearch                          " Incremental search
-set hlsearch                           " Highlight search
-set ignorecase smartcase               " ignore casing when searching
-set scrolloff=3                        " Scroll 3 lines passing search, don't leave on top
+" Set options for ack.vim
+let g:ack_default_options = " -s -H --nocolor --nogroup"
+let g:ackprg = "~/bin/ack"
+
+" Set options for vim-airline
+let g:airline_powerline_fonts = 1
+set laststatus=2
+
+
+
+" """"""""
+" General Settings
+" """"""""
 
 syntax on
-set showcmd
+syntax enable
 
+set showmatch
+set incsearch
+set hlsearch
+set ignorecase smartcase
+set showcmd
 set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set shiftround                         " user multiple of shiftwidth when identing
-
 set ruler
-set hidden                             " Don't close buffers when changing, just hide
-" set nowrap                             " Don't wrap large lines
-set history=1000                       " Remember 100 history commands
-set undolevels=1000                    " Bigger undo memory
-
+set hidden
 set visualbell
 set noerrorbells
-
+set ttyfast
 set autoread
+set noswapfile
+set cursorline
+set showcmd
+set wildmenu
+set autoindent
+set number
+set background=dark
 
-" -----MAPPINGS-----
+set scrolloff=3
+set history=1000
+set undolevels=1000
+set encoding=utf-8
+set wildmode=longest,list
+set switchbuf=useopen
+set cmdheight=1
+set showtabline=2
+let mapleader = ","
+
+let g:solarized_termcolors = 256
+
+colorscheme jellybeans
+
+
+" """"""""
+" Mappings
+" """""""""
+
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
@@ -63,25 +103,33 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 
+noremap H :bp<cr>
+noremap L :bn<cr>
+
+noremap <C-d> :sh<cr>
+
 map :Q :q
 nnoremap K i<CR><Esc>
 
-" Map vimrc editing
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" -----FUNCTIONS-----
+map <leader>t :CtrlP<cr>
+map <C-B> :CtrlPBuffer<cr>
 
-" remove whistespace at end of line before write
-func! StripTrailingWhitespace()
-  normal mZ
-  %s/\s\+$//e
-  normal `Z
-endfunc
-au BufWrite * if ! &bin | call StripTrailingWhitespace() | endif
+map <leader>f :Ack
 
-" -----COLOUR-----
-set t_Co=256
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
-syntax enable
-set background=dark
+
+
+" """"""""
+" Local vimrc
+" """"""""
+
+
+if filereadable(glob("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
