@@ -127,7 +127,6 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 " Local vimrc
 " """"""""
 
-
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
