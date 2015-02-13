@@ -13,6 +13,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'bling/vim-airline'
 Plugin 'mileszs/ack.vim'
+Plugin 'bogado/file-line'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
