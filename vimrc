@@ -118,7 +118,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 map <leader>t :CtrlP<cr>
 map <C-B> :CtrlPBuffer<cr>
 
-map <leader>f :Ack
+map <leader>f :Ack 
 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
