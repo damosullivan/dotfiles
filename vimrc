@@ -1,24 +1,27 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+if !empty(glob("~/.vim/bundle/Vundle.vim"))
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'bling/vim-airline'
-Plugin 'mileszs/ack.vim'
-Plugin 'bogado/file-line'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
+    set nocompatible              " be iMproved, required
+    filetype off                  " required
 
 
+    " set the runtime path to include Vundle and initialize
+    set rtp+=~/.vim/bundle/Vundle.vim
+    
+    call vundle#begin()
+    
+    Plugin 'gmarik/Vundle.vim'
+    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'kien/ctrlp.vim'
+    Plugin 'tpope/vim-commentary'
+    Plugin 'flazz/vim-colorschemes'
+    Plugin 'bling/vim-airline'
+    Plugin 'mileszs/ack.vim'
+    Plugin 'bogado/file-line'
+    
+    call vundle#end()            " required
+    filetype plugin indent on    " required
+
+endif
 
 " """"""""
 " Plugin Settings
@@ -83,8 +86,9 @@ let mapleader = ","
 
 let g:solarized_termcolors = 256
 
-colorscheme jellybeans
-
+if !empty(glob("~/.vim/bundle/vim-colorschemes"))
+    colorscheme jellybeans
+endif
 
 " """"""""
 " Mappings
