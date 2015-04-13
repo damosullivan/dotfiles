@@ -6,9 +6,9 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
 
     " set the runtime path to include Vundle and initialize
     set rtp+=~/.vim/bundle/Vundle.vim
-    
+
     call vundle#begin()
-    
+
     Plugin 'gmarik/Vundle.vim'
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'kien/ctrlp.vim'
@@ -18,7 +18,7 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
     Plugin 'mileszs/ack.vim'
     Plugin 'bogado/file-line'
     Bundle 'stephpy/vim-yaml'
-    
+
     call vundle#end()            " required
     filetype plugin indent on    " required
 
@@ -124,10 +124,13 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 map <leader>t :CtrlP<cr>
 map <C-B> :CtrlPBuffer<cr>
 
-map <leader>f :Ack 
+map <leader>f :Ack
 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+noremap <Enter> :nohl<cr><cr>
 
 
 " """"""""
