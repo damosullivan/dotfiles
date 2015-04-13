@@ -17,6 +17,7 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
     Plugin 'bling/vim-airline'
     Plugin 'mileszs/ack.vim'
     Plugin 'bogado/file-line'
+    Bundle 'stephpy/vim-yaml'
     
     call vundle#end()            " required
     filetype plugin indent on    " required
@@ -83,6 +84,7 @@ set switchbuf=useopen
 set cmdheight=1
 set showtabline=2
 let mapleader = ","
+set backspace=indent,start
 
 let g:solarized_termcolors = 256
 
