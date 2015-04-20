@@ -17,7 +17,8 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
     Plugin 'bling/vim-airline'
     Plugin 'mileszs/ack.vim'
     Plugin 'bogado/file-line'
-    Bundle 'stephpy/vim-yaml'
+    Plugin 'stephpy/vim-yaml'
+    Plugin 'scrooloose/syntastic'
 
     call vundle#end()            " required
     filetype plugin indent on    " required
@@ -42,6 +43,18 @@ let g:ackprg = "~/bin/ack"
 " Set options for vim-airline
 let g:airline_powerline_fonts = 1
 set laststatus=2
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+map <F7> :Errors<cr>
 
 
 
