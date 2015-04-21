@@ -19,6 +19,7 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
     Plugin 'bogado/file-line'
     Plugin 'stephpy/vim-yaml'
     Plugin 'scrooloose/syntastic'
+    Plugin 'tpope/vim-fugitive'
 
     call vundle#end()            " required
     filetype plugin indent on    " required
@@ -86,8 +87,10 @@ set showcmd
 set wildmenu
 set autoindent
 set number
-set background=dark
+set splitbelow
+set splitright
 
+set background=dark
 set scrolloff=3
 set history=1000
 set undolevels=1000
@@ -96,9 +99,9 @@ set wildmode=longest,list
 set switchbuf=useopen
 set cmdheight=1
 set showtabline=2
-let mapleader = ","
 set backspace=indent,start
 
+let mapleader = ","
 let g:solarized_termcolors = 256
 
 if !empty(glob("~/.vim/bundle/vim-colorschemes"))
