@@ -20,6 +20,7 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
     Plugin 'stephpy/vim-yaml'
     Plugin 'scrooloose/syntastic'
     Plugin 'tpope/vim-fugitive'
+    Plugin 'ervandew/supertab'
 
     call vundle#end()            " required
     filetype plugin indent on    " required
