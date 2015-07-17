@@ -39,7 +39,7 @@ let g:ctrlp_switch_buffer = '<C-t>'
 let g:ctrlp_mruf_case_sensitive = 0
 
 " Set options for ack.vim
-let g:ack_default_options = " -s -H --nocolor --nogroup"
+let g:ack_default_options = " --smart-case -s -H --nocolor --nogroup"
 let g:ackprg = "~/bin/ack"
 
 " Set options for vim-airline
