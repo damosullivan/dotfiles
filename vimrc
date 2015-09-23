@@ -21,6 +21,7 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
     Plugin 'scrooloose/syntastic'
     Plugin 'tpope/vim-fugitive'
     Plugin 'ervandew/supertab'
+    Plugin 'benmills/vimux'
 
     call vundle#end()            " required
     filetype plugin indent on    " required
@@ -37,6 +38,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 let g:ctrlp_switch_buffer = '<C-t>'
 let g:ctrlp_mruf_case_sensitive = 0
+let g:ctrlp_custom_ignore = '\.(pyc)$'
 
 " Set options for ack.vim
 let g:ack_default_options = " --smart-case -s -H --nocolor --nogroup"
@@ -57,6 +59,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 map <F7> :Errors<cr>
+
+" vimux
+let g:VimuxHeight = "15"
 
 
 
@@ -138,17 +143,46 @@ nnoremap K i<CR><Esc>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-map <leader>t :CtrlP<cr>
-map <leader>b :CtrlPBuffer<cr>
+" map <leader>t :CtrlP<cr>
+" map <leader>b :CtrlPBuffer<cr>
 
 map <leader>f :Ack!<Space>
+
+map <leader>vl :VimuxRunLastCommand<cr>
+map <leader>vq :VimuxCloseRunner<cr>
+map <leader>bb :VimuxRunCommand "brazil-build"<cr>
+map <leader>bbt :VimuxRunCommand "brazil-build test"<cr>
+
+map <leader>p :set paste!<cr>
+map <leader>n :set number!<cr>
+map <leader>w :set wrap!<cr>
+map <leader>s :SyntasticToggleMode<cr>
 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-noremap <Enter> :nohl<cr><cr>
+nnoremap <silent> <Leader>+ :exe "vertical resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
 
+map <leader>t :CtrlPTag<CR>
+map <leader>rt :silent :! ctags -R --exclude=.git --exclude=log --exclude=coverage --exclude=cover --exclude=build *<CR>:redraw!<CR>
+
+augroup reload_vimrc
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END
+
+augroup close_vimux_buffer
+    autocmd!
+    autocmd VimLeave * :VimuxCloseRunner
+augroup END
+
+" augroup ctrl_p_on_empty_vim
+"     autocmd!
+"     autocmd StdinReadPre * let s:std_in=1
+"     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | execute ":CtrlP" | endif
+" augroup END
 
 " """"""""
 " Local vimrc
