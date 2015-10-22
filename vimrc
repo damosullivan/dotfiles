@@ -22,6 +22,7 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
     Plugin 'tpope/vim-fugitive'
     Plugin 'ervandew/supertab'
     Plugin 'benmills/vimux'
+    Plugin 'bronson/vim-trailing-whitespace'
 
     call vundle#end()            " required
     filetype plugin indent on    " required
@@ -156,7 +157,10 @@ map <leader>bbt :VimuxRunCommand "brazil-build test"<cr>
 map <leader>p :set paste!<cr>
 map <leader>n :set number!<cr>
 map <leader>w :set wrap!<cr>
+map <leader>h :nohl<cr>
+map <leader>w :FixWhitespace<cr>
 map <leader>s :SyntasticToggleMode<cr>
+nnoremap <leader>pdb oimport pdb<cr>pdb.set_trace()<Esc>
 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
