@@ -175,6 +175,12 @@ nnoremap <silent> <Leader>- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
 map <leader>t :CtrlPTag<CR>
 map <leader>rt :silent :! ctags -R --exclude=.git --exclude=log --exclude=coverage --exclude=cover --exclude=build *<CR>:redraw!<CR>
 
+if exists(':tnoremap')
+    tnoremap <Esc> <C-\><C-n>
+endif
+
+
+
 augroup reload_vimrc
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
