@@ -40,6 +40,7 @@ let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 let g:ctrlp_switch_buffer = '<C-t>'
 let g:ctrlp_mruf_case_sensitive = 0
 let g:ctrlp_custom_ignore = '\.(pyc)$'
+let g:ctrlp_working_path_mode=0
 
 " Set options for ack.vim
 let g:ack_default_options = " --smart-case -s -H --nocolor --nogroup"
@@ -58,6 +59,11 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 
 map <F7> :Errors<cr>
 
