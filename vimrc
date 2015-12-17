@@ -11,7 +11,7 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
 
     Plugin 'gmarik/Vundle.vim'
     Plugin 'altercation/vim-colors-solarized'
-    Plugin 'kien/ctrlp.vim'
+    Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'tpope/vim-commentary'
     Plugin 'flazz/vim-colorschemes'
     Plugin 'bling/vim-airline'
@@ -21,8 +21,8 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
     Plugin 'scrooloose/syntastic'
     Plugin 'tpope/vim-fugitive'
     Plugin 'ervandew/supertab'
-    Plugin 'benmills/vimux'
     Plugin 'bronson/vim-trailing-whitespace'
+    Plugin 'airblade/vim-gitgutter'
 
     call vundle#end()            " required
     filetype plugin indent on    " required
@@ -133,10 +133,13 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 
+noremap <leader>< :tabp<cr>
+noremap <leader>> :tabn<cr>
+
 noremap H :bp<cr>
 noremap L :bn<cr>
 
-noremap <C-d> :sh<cr>
+nnoremap <C-t> :tabnew<cr>
 
 map :Q :q
 nnoremap K i<CR><Esc>
