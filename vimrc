@@ -23,6 +23,8 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
     Plugin 'ervandew/supertab'
     Plugin 'bronson/vim-trailing-whitespace'
     Plugin 'airblade/vim-gitgutter'
+    Plugin 'christoomey/vim-tmux-navigator'
+
 
     call vundle#end()            " required
     filetype plugin indent on    " required
@@ -67,10 +69,17 @@ let g:syntastic_auto_loc_list = 1
 
 map <F7> :Errors<cr>
 
-" vimux
-let g:VimuxHeight = "15"
 
+" VIM-TMUX-INTEGRATION
+let g:tmux_navigator_no_mappings = 1
 
+noremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+
+let g:tmux_navigator_save_on_switch = 1
 
 " """"""""
 " General Settings
@@ -129,15 +138,11 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
-map <Left> :echo "no!"<cr>
-map <Right> :echo "no!"<cr>
-map <Up> :echo "no!"<cr>
-map <Down> :echo "no!"<cr>
 
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
+" noremap <C-l> <C-w>l
+" noremap <C-h> <C-w>h
+" noremap <C-j> <C-w>j
+" noremap <C-k> <C-w>k
 
 noremap <leader>< :tabp<cr>
 noremap <leader>> :tabn<cr>
