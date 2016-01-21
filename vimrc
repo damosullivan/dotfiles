@@ -166,8 +166,7 @@ map <leader>f :Ack!<Space>
 
 map <leader>vl :VimuxRunLastCommand<cr>
 map <leader>vq :VimuxCloseRunner<cr>
-map <leader>bb :VimuxRunCommand "brazil-build"<cr>
-map <leader>bbt :VimuxRunCommand "brazil-build test"<cr>
+map <leader>b :VimuxRunCommand "<BUILD-COMMAND>"<cr>
 
 map <leader>p :set paste!<cr>
 map <leader>n :set number!<cr>
