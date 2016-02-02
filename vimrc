@@ -89,6 +89,7 @@ let g:tmux_navigator_save_on_switch = 1
 syntax on
 syntax enable
 
+set t_Co=256
 set showmatch
 set incsearch
 set hlsearch
