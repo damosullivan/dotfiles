@@ -34,6 +34,7 @@ SAVEHIST=15000
 # Which plugins would you like to load?
 plugins=(git tmux brew ssh-agent zsh-syntax-highlighting)
 
+# Auto Start a tmux session
 ZSH_TMUX_AUTOSTART="true"
 
 
@@ -50,6 +51,8 @@ paths=(
     '/usr/local/games:'
     '/usr/NX/bin'
     '/home/damien/.linuxbrew/bin'
+    '/Users/$USER/bin'
+    '/Users/$USER/anaconda/bin'
 )
 path_string=$(echo $paths | sed -e s@' '@:@g)
 export PATH="$PATH:$path_string"
