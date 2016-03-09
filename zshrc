@@ -2,7 +2,7 @@
 export ZSH=/home/damien/.oh-my-zsh
 
 # Set name of the theme to load.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -36,6 +36,7 @@ plugins=(git tmux brew ssh-agent zsh-syntax-highlighting)
 
 # Auto Start a tmux session
 ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_FIXTERM_WITH_256COLOR="xterm-256color"
 
 
 
@@ -43,6 +44,8 @@ ZSH_TMUX_AUTOSTART="true"
 paths=(
     '/bin'
     '/sbin'
+    '~/bin'
+    '~/sbin'
     '/usr/local/bin'
     '/usr/local/sbin'
     '/usr/bin'
@@ -71,6 +74,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases - :{range}sort u to sort alphabetically
 alias ack='ack --smart-case'
+alias tmux='tmux -2'
 alias cdw='cd ~/workspace'
 alias gra='git lg'
 alias res='source ~/.zshrc'
@@ -93,4 +97,3 @@ v() {
        vim -c CtrlP
    fi
 }
-

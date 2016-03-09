@@ -10,15 +10,10 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
     call vundle#begin()
 
     Plugin 'gmarik/Vundle.vim'
-    Plugin 'altercation/vim-colors-solarized'
     Plugin 'ctrlpvim/ctrlp.vim'
-    Plugin 'tpope/vim-commentary'
-    Plugin 'flazz/vim-colorschemes'
-    Plugin 'bling/vim-airline'
     Plugin 'mileszs/ack.vim'
     Plugin 'bogado/file-line'
     Plugin 'stephpy/vim-yaml'
-    Plugin 'scrooloose/syntastic'
     Plugin 'tpope/vim-fugitive'
     Plugin 'ervandew/supertab'
     Plugin 'bronson/vim-trailing-whitespace'
@@ -35,7 +30,7 @@ endif
 " Plugin Settings
 " """"""""
 
-" Set options for ctrlp.vim
+" SET OPTIONS FOR ctrlp.vim
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30,results:30'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
@@ -44,31 +39,9 @@ let g:ctrlp_mruf_case_sensitive = 0
 let g:ctrlp_custom_ignore = '\.(pyc)$'
 let g:ctrlp_working_path_mode=0
 
-" Set options for ack.vim
+" SET OPTIONS FOR ack.vim
 let g:ack_default_options = " --smart-case -s -H --nocolor --nogroup"
 let g:ackprg = "~/bin/ack"
-
-" Set options for vim-airline
-let g:airline_powerline_fonts = 1
-set laststatus=2
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-
-
-map <F7> :Errors<cr>
 
 
 " VIM-TMUX-INTEGRATION
@@ -78,7 +51,6 @@ noremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-" nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 let g:tmux_navigator_save_on_switch = 1
 
@@ -115,6 +87,7 @@ set splitbelow
 set splitright
 
 set background=dark
+set laststatus=2
 set scrolloff=3
 set history=1000
 set undolevels=1000
@@ -126,11 +99,6 @@ set showtabline=2
 set backspace=indent,start
 
 let mapleader = ","
-let g:solarized_termcolors = 256
-
-if !empty(glob("~/.vim/bundle/vim-colorschemes"))
-    colorscheme jellybeans
-endif
 
 " """"""""
 " Mappings
@@ -160,24 +128,13 @@ nnoremap K i<CR><Esc>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" map <leader>t :CtrlP<cr>
-" map <leader>b :CtrlPBuffer<cr>
-
 map <leader>f :Ack!<Space>
-
-map <leader>vl :VimuxRunLastCommand<cr>
-map <leader>vq :VimuxCloseRunner<cr>
-map <leader>b :VimuxRunCommand "<BUILD-COMMAND>"<cr>
 
 map <leader>p :set paste!<cr>
 map <leader>n :set number!<cr>
 map <leader>w :set wrap!<cr>
 map <leader>h :nohl<cr>
 map <leader>w :FixWhitespace<cr>
-map <leader>s :SyntasticToggleMode<cr>
-nnoremap <leader>pdb oimport pdb<cr>pdb.set_trace()<Esc>
-
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
@@ -190,8 +147,6 @@ map <leader>rt :silent :! ctags -R --exclude=.git --exclude=log --exclude=covera
 if exists(':tnoremap')
     tnoremap <Esc> <C-\><C-n>
 endif
-
-
 
 augroup reload_vimrc
     autocmd!
@@ -216,5 +171,7 @@ augroup END
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
+
+source /usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/plugin/powerline.vim
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
