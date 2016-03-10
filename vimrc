@@ -19,6 +19,7 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
     Plugin 'bronson/vim-trailing-whitespace'
     Plugin 'airblade/vim-gitgutter'
     Plugin 'christoomey/vim-tmux-navigator'
+    Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 
     call vundle#end()            " required
@@ -171,7 +172,5 @@ augroup END
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
-
-source /usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/plugin/powerline.vim
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
