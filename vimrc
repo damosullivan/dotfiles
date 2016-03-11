@@ -19,7 +19,7 @@ if !empty(glob("~/.vim/bundle/Vundle.vim"))
     Plugin 'bronson/vim-trailing-whitespace'
     Plugin 'airblade/vim-gitgutter'
     Plugin 'christoomey/vim-tmux-navigator'
-    Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+    Plugin 'vim-airline/vim-airline'
 
 
     call vundle#end()            " required
@@ -43,6 +43,10 @@ let g:ctrlp_working_path_mode=0
 " SET OPTIONS FOR ack.vim
 let g:ack_default_options = " --smart-case -s -H --nocolor --nogroup"
 let g:ackprg = "~/bin/ack"
+
+" SET OPTIONS FOR AIRLINE
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 
 " VIM-TMUX-INTEGRATION
