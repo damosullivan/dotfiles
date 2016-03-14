@@ -2,7 +2,7 @@ if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs --insecure https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
 Plug 'tpope/vim-sensible'
 Plug 'ctrlpvim/ctrlp.vim'
