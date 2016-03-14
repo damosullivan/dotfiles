@@ -140,6 +140,7 @@ map <leader>f :Ack!<Space>
 map <leader>p :set paste!<cr>
 map <leader>n :set number!<cr>
 map <leader>w :set wrap!<cr>
+map <leader>g :GitGutterToggle<cr>
 map <leader>h :nohl<cr>
 map <leader>w :FixWhitespace<cr>
 
