@@ -1,31 +1,27 @@
-if !empty(glob("~/.vim/bundle/Vundle.vim"))
-
-    set nocompatible              " be iMproved, required
-    filetype off                  " required
-
-
-    " set the runtime path to include Vundle and initialize
-    set rtp+=~/.vim/bundle/Vundle.vim
-
-    call vundle#begin()
-
-    Plugin 'gmarik/Vundle.vim'
-    Plugin 'ctrlpvim/ctrlp.vim'
-    Plugin 'mileszs/ack.vim'
-    Plugin 'bogado/file-line'
-    Plugin 'stephpy/vim-yaml'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'ervandew/supertab'
-    Plugin 'bronson/vim-trailing-whitespace'
-    Plugin 'airblade/vim-gitgutter'
-    Plugin 'christoomey/vim-tmux-navigator'
-    Plugin 'vim-airline/vim-airline'
-
-
-    call vundle#end()            " required
-    filetype plugin indent on    " required
-
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-sensible'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'bogado/file-line'
+Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
+Plug 'tpope/vim-fugitive'
+Plug 'ervandew/supertab'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/syntastic', { 'for': ['python'] }
+
+call plug#end()
+
+filetype plugin indent on    " required
+
 
 " """"""""
 " Plugin Settings
@@ -59,6 +55,11 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 let g:tmux_navigator_save_on_switch = 1
 
+" NERD TREE
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
 " """"""""
 " General Settings
 " """"""""
@@ -66,6 +67,7 @@ let g:tmux_navigator_save_on_switch = 1
 syntax on
 syntax enable
 
+set nocompatible
 set t_Co=256
 set showmatch
 set incsearch
@@ -156,11 +158,6 @@ endif
 augroup reload_vimrc
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END
-
-augroup close_vimux_buffer
-    autocmd!
-    autocmd VimLeave * :VimuxCloseRunner
 augroup END
 
 " augroup ctrl_p_on_empty_vim
