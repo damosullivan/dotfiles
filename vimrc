@@ -1,5 +1,6 @@
 if empty(glob("~/.vim/autoload/plug.vim"))
-    execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs --insecure https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+    silent '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs --insecure https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall
 endif
 
 call plug#begin()
