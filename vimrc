@@ -11,13 +11,17 @@ Plug 'mileszs/ack.vim'
 Plug 'bogado/file-line'
 Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 Plug 'tpope/vim-fugitive'
-Plug 'ervandew/supertab'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'scrooloose/syntastic', { 'for': ['python'] }
+" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/syntastic'
+Plug 'elzr/vim-json'
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'Raimondi/delimitMate'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 call plug#end()
 
@@ -39,7 +43,7 @@ let g:ctrlp_working_path_mode=0
 
 " SET OPTIONS FOR ack.vim
 let g:ack_default_options = " --smart-case -s -H --nocolor --nogroup"
-let g:ackprg = "~/bin/ack"
+let g:ackprg = "/usr/local/bin/ag"
 
 " SET OPTIONS FOR AIRLINE
 let g:airline_powerline_fonts = 1
@@ -56,10 +60,23 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 let g:tmux_navigator_save_on_switch = 1
 
-" NERD TREE
+" SET OPTIONS FOR NERD TREE
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" SET OPTIONS FOR SYNTASTIC
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
+let g:syntastic_javascript_eslint_args = "--fix"
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" SET OPTIONS FOR DELIMIMATE
+imap <C-c> <CR><Esc>O
 
 " """"""""
 " General Settings
@@ -76,9 +93,9 @@ set hlsearch
 set ignorecase smartcase
 set showcmd
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set ruler
 set hidden
 set visualbell
@@ -141,6 +158,7 @@ map <leader>f :Ack!<Space>
 map <leader>p :set paste!<cr>
 map <leader>n :set number!<cr>
 map <leader>w :set wrap!<cr>
+map <leader>s :SyntasticToggleMode<cr>
 map <leader>g :GitGutterToggle<cr>
 map <leader>h :nohl<cr>
 map <leader>w :FixWhitespace<cr>
