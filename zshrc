@@ -32,7 +32,7 @@ SAVEHIST=15000
 # Plugin Settings
 
 # Which plugins would you like to load?
-plugins=(git tmux brew ssh-agent zsh-syntax-highlighting)
+plugins=(git tmux zsh-syntax-highlighting)
 
 # Auto Start a tmux session
 ZSH_TMUX_AUTOSTART="true"
@@ -54,17 +54,13 @@ paths=(
     '/usr/local/games:'
     '/usr/NX/bin'
     '/home/damien/.linuxbrew/bin'
-    '/Users/$USER/bin'
-    '/Users/$USER/anaconda/bin'
+    '/home/linuxbrew/.linuxbrew/bin'
+    '/home/damien/.local/bin/'
 )
 path_string=$(echo $paths | sed -e s@' '@:@g)
 export PATH="$PATH:$path_string"
 
-
-
 source $ZSH/oh-my-zsh.sh
-
-
 
 # User configuration
 
@@ -81,10 +77,6 @@ alias res='source ~/.zshrc'
 alias server='python -m SimpleHTTPServer'
 alias td='tmux detach'
 alias open='xdg-open'
-# alias la='ls -alh --color=tty'
-# alias ll='ls -lh --color=tty'
-# alias lt='ls -lht --color=tty'
-
 
 # Functions
 

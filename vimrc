@@ -5,23 +5,13 @@ endif
 
 call plug#begin()
 
-Plug 'tpope/vim-sensible'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'bogado/file-line'
-Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
-Plug 'tpope/vim-fugitive'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
-" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'scrooloose/syntastic'
-Plug 'elzr/vim-json'
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'Raimondi/delimitMate'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 call plug#end()
 
@@ -59,24 +49,6 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 let g:tmux_navigator_save_on_switch = 1
-
-" SET OPTIONS FOR NERD TREE
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" SET OPTIONS FOR SYNTASTIC
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
-let g:syntastic_javascript_eslint_args = "--fix"
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" SET OPTIONS FOR DELIMIMATE
-imap <C-c> <CR><Esc>O
 
 " """"""""
 " General Settings
